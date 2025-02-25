@@ -1,0 +1,25 @@
+services:
+  ghunt:
+    container_name: ghunt
+    build:
+      context: ./ghunt
+    image: ghunt-container
+    stdin_open: true
+    tty: true
+    volumes:
+      - ./ghunt_data:/root/.malfrats/ghunt:rw
+
+  api:
+    container_name: ghunt_api
+    build:
+      context: ./api
+    ports:
+      - "8000:8000"
+    networks:
+      - ghunt_network
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+
+networks:
+  ghunt_network:
+    driver: bridge
