@@ -1,0 +1,5 @@
+#Personal docker-compose
+docker-compose.override.yml
+
+#Personal creds
+ghunt_data/
