@@ -7,7 +7,8 @@
    docker exec -it ghunt bash
    ghunt login
    ```
-4. Finally : `http://localhost:8000/ghunt?command=email&params=example@gmail.com`
+4. Change the content of api_data/key.txt
+5. Finally connect; using the key you just choose: `http://localhost:8000/ghunt?command=email&params=example@gmail.com&key=LongSecretKey`
 
 ## Note
 - creds.m saved in `./ghunt_data` and mounted in container
