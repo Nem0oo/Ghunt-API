@@ -19,6 +19,7 @@ services:
       - ghunt_network
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
+      - ./api_data:/app/api_data
 
 networks:
   ghunt_network:

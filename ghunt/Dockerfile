@@ -6,4 +6,5 @@ RUN apt update && apt install -y pipx coreutils
 RUN pipx install ghunt
 
 WORKDIR /app
-CMD ["tail", "-f", "/dev/null"] #keeps the container running
+#keeps the container running
+CMD ["tail", "-f", "/dev/null"]
