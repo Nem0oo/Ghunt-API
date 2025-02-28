@@ -8,7 +8,7 @@ app = FastAPI()
 @app.get("/ghunt")
 def run_ghunt(command: str, params: str, key: str):
     secret = Path('api_data/key.txt').read_text()
-    jsonFileName = Path('/acount_info/' + time.strftime("%Y%m%d-%H%M%S") + params.replace("@gmail.com",".json"))
+    jsonFileName = Path('/accounts_info/' + time.strftime("%Y%m%d-%H%M%S") + params.replace("@gmail.com",".json"))
     if key == secret:
         try:
             result = subprocess.run([
