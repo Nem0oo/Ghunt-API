@@ -3,4 +3,5 @@ docker-compose.override.yml
 
 #Personal creds
 ghunt_data/
-api_data/
+api_data/key.txt
+acount_info/

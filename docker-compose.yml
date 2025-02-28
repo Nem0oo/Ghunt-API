@@ -8,6 +8,7 @@ services:
     tty: true
     volumes:
       - ./ghunt_data:/root/.malfrats/ghunt:rw
+      - ./acount_info:/acount_info:rw
 
   api:
     container_name: ghunt_api
@@ -20,6 +21,7 @@ services:
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - ./api_data:/app/api_data
+      - ./acount_info:/acount_info:rw
 
 networks:
   ghunt_network:
