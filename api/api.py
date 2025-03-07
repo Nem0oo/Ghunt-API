@@ -19,3 +19,18 @@ def run_ghunt(command: str, params: str, key: str):
         except Exception as e:
             return {"error": str(e)}
     return {"error":"Invalid key"}
+
+@app.get("/instagram")
+def run_instagram(username: str, key: str):
+    secret = Path('api_data/key.txt').read_text()
+    jsonFileName = Path('/accounts_info/' + time.strftime("%Y%m%d-%H%M%S") + username + ".json")
+    if key == secret:
+        try:
+            result = subprocess.run([
+                "docker", "exec", "instagram", "insta-osint", username, "--json", jsonFileName
+            ], capture_output=True, text=True)
+            jsonContent = Path(jsonFileName).read_text()
+            return {"output": {"text" : result.stdout, "json" : jsonContent}, "error": result.stderr}
+        except Exception as e:
+            return {"error": str(e)}
+    return {"error":"Invalid key"}

@@ -10,6 +10,18 @@ services:
       - ./ghunt_data:/root/.malfrats/ghunt:rw
       - ./accounts_info:/accounts_info:rw
 
+  instagram:
+    container_name: instagram
+    build:
+      context: ./instagram
+    image: insta-osint-container
+    stdin_open: true
+    tty: true
+    volumes:
+      - ./accounts_info:/accounts_info:rw
+    networks:
+      - ghunt_network
+
   api:
     container_name: ghunt_api
     build:
